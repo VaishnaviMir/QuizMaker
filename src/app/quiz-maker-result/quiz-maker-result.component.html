@@ -1,0 +1,58 @@
+<div class="conatiner p-4">
+  <h3 class="txt_alignment">RESULT</h3>
+  <div class="grid" *ngFor="let ques of result; let i = index">
+    <div class="col-12">
+      <p [innerHTML]="ques.question"></p>
+    </div>
+
+    <div class="col" *ngFor="let btns of ques.incorrect_answers; let j = index">
+      <button
+        pButton
+        pRipple
+        class="noHover p-button-sm"
+        [ngClass]="[
+          ques.correct_answer == btns &&
+          ques.selectedAnswer == ques.correct_answer
+            ? 'green'
+            : ques.correct_answer != ques.selectedAnswer &&
+              ques.selectedAnswer == btns
+            ? 'red'
+            : ques.correct_answer == btns
+            ? 'green'
+            : 'p-button-outlined'
+        ]"
+        id="bt_{{ i + '_' + j }}"
+      >
+        <p [innerHTML]="btns"></p>
+      </button>
+    </div>
+  </div>
+  <div class="grid mt-2">
+    <div class="col"></div>
+    <div
+      class="col"
+      [ngClass]="{
+        red: this.count == 0 || this.count == 1,
+        yelow: this.count == 2 || this.count == 3,
+        green: this.count == 4 || this.count == 5
+      }"
+    >
+      You Scored {{ this.count }} Out of 5
+    </div>
+    <div class="col"></div>
+  </div>
+
+  <div class="grid mt-2">
+    <div class="col sub_btn">
+      <button
+        label="Large"
+        pButton
+        pRipple
+        (click)="newQuizClicked()"
+        class="lst_quiz_btn"
+        label="Create a new quiz"
+        id="Btn_quiz"
+      ></button>
+    </div>
+  </div>
+</div>

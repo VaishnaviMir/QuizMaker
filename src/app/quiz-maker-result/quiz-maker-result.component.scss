@@ -1,0 +1,77 @@
+.noHover {
+  pointer-events: none;
+  cursor: default;
+}
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.yelow {
+  background-color: yellow;
+}
+.lst_quiz_btn {
+  background-color: gray;
+  color: white;
+}
+
+.lst_quiz_btn:hover {
+  background-color: gray;
+  color: white;
+}
+.txt_alignment {
+  text-align: center;
+}
+.quiz_txt {
+  margin-left: 40%;
+}
+
+.container-body::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.left-text {
+  width: 50%;
+  float: left;
+}
+
+.right-picture {
+  float: right;
+  width: 50%;
+}
+:host::ng-deep .p-card {
+  .p-card-body {
+    padding: 10px !important;
+  }
+
+  .p-card-content {
+    padding: 0rem !important;
+  }
+}
+:host::ng-deep .p-dropdown-items-wrapper {
+  max-height: 20rem !important;
+}
+:host::ng-deep .p-card-footer {
+  .p-button {
+    color: #ffffff;
+    background: #1b6d1f;
+  }
+}
+
+.sub_btn {
+  text-align: center;
+}
+
+.lstSub_btn {
+  margin: 10px;
+  width: 60%;
+  background-color: gray;
+  color: white;
+}
+.lstSub_btn:hover {
+  background-color: gray;
+  color: white;
+}
