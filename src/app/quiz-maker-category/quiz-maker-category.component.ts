@@ -25,7 +25,7 @@ export class QuizMakerCategoryComponent implements OnInit, OnDestroy {
   public isActive: boolean = false;
   public enableSubmit: boolean = false;
   public counter: number = 0;
-  public disabled: boolean = true;
+  public disabled: boolean = false;
   constructor(
     private quizMakerApiService: QuizMakerApiService,
     private router: Router,
@@ -54,7 +54,7 @@ export class QuizMakerCategoryComponent implements OnInit, OnDestroy {
           .getQuestions(this.categoryId, this.difficultyName.toLowerCase())
           .subscribe(
             (res) => {
-              this.questionAnswers = res['results'];
+              this.questionAnswers = res.results;
               this.questionAnswers.forEach((ele, indx, val) => {
                 this.questionAnswers[indx].incorrect_answers.push(
                   ele.correct_answer
@@ -65,7 +65,7 @@ export class QuizMakerCategoryComponent implements OnInit, OnDestroy {
                   );
                 this.questionAnswers[indx].selectedAnswer = '';
               });
-              this.disabled = false;
+              this.disabled = true;
             },
             (error) => {
               this.disabled = false;
@@ -86,9 +86,6 @@ export class QuizMakerCategoryComponent implements OnInit, OnDestroy {
   }
   selecteDifficultyLevelId(val: string) {
     this.difficultyName = val;
-    if (this.selectedCategory && this.selectedDiffculty) {
-      this.disabled = false;
-    }
   }
   buttonSelected(event: string, parentIndex: number, childIndex: number) {
     this.questionAnswers[parentIndex].selectedAnswer = event;
