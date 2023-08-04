@@ -4,9 +4,9 @@ import { QuizMakerApiService } from '../quiz-maker-api.service';
 import { questionAnswers } from '../shared/quiz-maker-modal';
 
 @Component({
-  selector: 'app-quiz-maker-result-page',
-  templateUrl: './quiz-maker-result-page.component.html',
-  styleUrls: ['./quiz-maker-result-page.component.scss'],
+  selector: 'app-quiz-maker-result',
+  templateUrl: './quiz-maker-result.component.html',
+  styleUrls: ['./quiz-maker-result.component.scss'],
 })
 export class QuizMakerResultComponent implements OnInit {
   public category: number = 0;
