@@ -65,7 +65,7 @@ export class QuizMakerCategoryComponent implements OnInit, OnDestroy {
                   );
                 this.questionAnswers[indx].selectedAnswer = '';
               });
-              this.disabled = true;
+              this.disabled = false;
             },
             (error) => {
               this.disabled = false;
